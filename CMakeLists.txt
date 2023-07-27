@@ -37,3 +37,4 @@ else()
 endif()
 
 add_subdirectory(YaenamiControl)
+add_subdirectory(TrgFw)
