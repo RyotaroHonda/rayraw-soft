@@ -38,8 +38,15 @@ int main(int argc, char* argv[])
   uint32_t reg_trg = TRM::kRegL1Ext;
   fpga_module.WriteModule(TRM::kAddrSelectTrigger, reg_trg);
 
-  // Set trigger path //
+  // Set NIM-IN //
+  fpga_module.WriteModule(IOM::kAddrExtL1, IOM::kReg_i_Nimin1);
+
+  // Set TDC window //
   HUL::DAQ::SetTdcWindow(window_max, window_min, fpga_module);
+
+  // Enable TDC block //
+  uint32_t en_block = TDC::kEnLeading | TDC::kEnTrailing;
+  fpga_module.WriteModule(TDC::kAddrEnableBlock, en_block);
 
   // Resest event counter //
   fpga_module.WriteModule(DCT::kAddrResetEvb, 0);

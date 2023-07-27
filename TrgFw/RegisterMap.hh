@@ -50,6 +50,12 @@ namespace LBUS{
 	kAddrWindowMax     = 0x30200000, // W/R, [10:0] Search window max
 	kAddrWindowMin     = 0x30300000  // W/R, [10:0] Search window min
       };
+
+    enum TdcBlock
+      {
+	kEnLeading  = 0x1,
+	kEnTrailing = 0x2
+      };
   };
 
   //-------------------------------------------------------------------------
@@ -84,7 +90,8 @@ namespace LBUS{
 	kReg_o_clk100kHz  = 0xA,
 	kReg_o_clk10kHz   = 0xB,
 	kReg_o_clk1kHz    = 0xC,
-	kReg_o_NC         = 0xF
+        kReg_o_NC         = 0xE,
+	kReg_o_Default    = 0xF
       };
 
     enum InputSubbAddress
@@ -93,7 +100,8 @@ namespace LBUS{
 	kReg_i_Nimin2 = 0x1,
 	kReg_i_Nimin3 = 0x2,
 	kReg_i_Nimin4 = 0x3,
-	kReg_i_NC     = 0x7
+	kReg_i_NC     = 0x6,
+	kReg_i_Default= 0x7
       };
   };
 
