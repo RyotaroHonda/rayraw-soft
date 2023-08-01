@@ -92,7 +92,10 @@ int main(int argc, char* argv[])
 {
   if(kSizeArg != argc){
     std::cout << "Usage\n";
-    std::cout << "Please write how to use here" << std::endl;
+    std::cout << "set_asic_register [ip address] [Register file path] [Mode]" << std::endl;
+    std::cout << "Mode:" << std::endl;
+    std::cout << "- initialize : Execute the ASIC initialization process" << std::endl;
+    std::cout << "- normal     : Change ASIC register setting" << std::endl;
     return 0;
   }// usage
   
