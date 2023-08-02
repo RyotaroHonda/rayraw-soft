@@ -134,7 +134,7 @@ int main(int argc, char* argv[])
   if(control_mode == kInitMode){
     const std::string file_name[kNumInitSeq] =
       {
-	"YAENAMI_1-1.txt","YAENAMI_1-2.txt","YAENAMI_1-1.txt","YAENAMI_1-3.txt",
+	"YAENAMI_1-1.txt","YAENAMI_1-2.txt","YAENAMI_1-1.txt","YAENAMI_1-3.txt"
       };
     
     for( int32_t i = 0; i<kNumInitSeq; ++i){
