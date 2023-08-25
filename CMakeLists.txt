@@ -19,9 +19,15 @@ message(STATUS "CMAKE_INSTALL_DATADIR:    " ${CMAKE_INSTALL_DATADIR} )
 message(STATUS "")
 
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH ON)
-set(CMAKE_EXE_LINKER_FLAGS     "${CMAKE_EXE_LINKER_FLAGS} -Wl,--no-as-needed,--enable-new-dtags")
-set(CMAKE_SHARED_LINKER_FLAGS  "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--no-as-needed,--enable-new-dtags")
-set(CMAKE_INSTALL_RPATH        "$ORIGIN/../${CMAKE_INSTALL_LIBDIR}")
+set(CMAKE_INSTALL_RPATH "$ORIGIN/../${CMAKE_INSTALL_LIBDIR}")
+
+if(APPLE)
+  message(STATUS "[BUILD on APPLE]")
+elseif(UNIX)
+  message(STATUS "[BUILD on UNIX AND NOT APPLE]")
+  set(CMAKE_EXE_LINKER_FLAGS     "${CMAKE_EXE_LINKER_FLAGS} -Wl,--no-as-needed,--enable-new-dtags")
+  set(CMAKE_SHARED_LINKER_FLAGS  "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--no-as-needed,--enable-new-dtags")
+endif()
 
 message(STATUS "CMAKE_EXE_LINKER_FLAGS:    " ${CMAKE_EXE_LINKER_FLAGS} )
 message(STATUS "CMAKE_SHARED_LINKER_FLAGS: " ${CMAKE_SHARED_LINKER_FLAGS} )
