@@ -5,6 +5,7 @@
 #include "FPGAModule.hh"
 #include "UDPRBCP.hh"
 #include "MhTdcFuncs.hh"
+#include "AdcFuncs.hh"
 #include "DaqFuncs.hh"
 
 enum kArgIndex{kBin, kIp, kRunNo, kNumEvent, kWinMax, kWinMin};
@@ -47,6 +48,9 @@ int main(int argc, char* argv[])
   // Enable TDC block //
   uint32_t en_block = TDC::kEnLeading | TDC::kEnTrailing;
   fpga_module.WriteModule(TDC::kAddrEnableBlock, en_block);
+
+  // Set ADC window (same as TDC) //
+  HUL::DAQ::SetAdcWindow(window_max, window_min, fpga_module);
 
   // Resest event counter //
   fpga_module.WriteModule(DCT::kAddrResetEvb, 0);
