@@ -4,6 +4,7 @@ set(FW_NAME TrgFw)
 set(MY_PUB_HEADER
   "RegisterMap.hh"
   "MhTdcFuncs.hh"
+  "AdcFuncs.hh"
   )
 
 foreach(val IN ITEMS

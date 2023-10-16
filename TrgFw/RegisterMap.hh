@@ -105,6 +105,18 @@ namespace LBUS{
       };
   };
 
+  //-------------------------------------------------------------------------
+  // ADC Module
+  //-------------------------------------------------------------------------
+  namespace ADC{
+    enum LocalAddress
+      {
+	kAddrPtrOfs        = 0x50000000, // W/R, [10:0] Offset read pointer
+	kAddrWindowMax     = 0x50100000, // W/R, [10:0] Search window max
+	kAddrWindowMin     = 0x50200000  // W/R, [10:0] Search window min
+      };
+  };
+
 };
 
 #endif
