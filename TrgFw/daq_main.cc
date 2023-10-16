@@ -35,6 +35,11 @@ int main(int argc, char* argv[])
   RBCP::UDPRBCP udp_rbcp(board_ip, RBCP::gUdpPort, RBCP::DebugMode::kNoDisp);
   HUL::FPGAModule fpga_module(udp_rbcp);
 
+  // Release AdcRo reset
+  if(1 == fpga_module.ReadModule(ADC::kAddrAdcRoReset)){
+    fpga_module.WriteModule(ADC::kAddrAdcRoReset, 0);
+  }
+
   // Set trigger path //
   uint32_t reg_trg = TRM::kRegL1Ext;
   fpga_module.WriteModule(TRM::kAddrSelectTrigger, reg_trg);
@@ -54,6 +59,9 @@ int main(int argc, char* argv[])
 
   // Resest event counter //
   fpga_module.WriteModule(DCT::kAddrResetEvb, 0);
+
+  // AdcRo initialize status
+  std::cout << "#D: AdcRo IsReady status: " << std::hex << fpga_module.ReadModule(ADC::kAddrAdcRoIsReady) << std::dec << std::endl;
 
   // Event Read Cycle //
   HUL::DAQ::DoTrgDaq(board_ip, run_no, num_event, DCT::kAddrDaqGate);

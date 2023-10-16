@@ -113,7 +113,9 @@ namespace LBUS{
       {
 	kAddrPtrOfs        = 0x50000000, // W/R, [10:0] Offset read pointer
 	kAddrWindowMax     = 0x50100000, // W/R, [10:0] Search window max
-	kAddrWindowMin     = 0x50200000  // W/R, [10:0] Search window min
+	kAddrWindowMin     = 0x50200000, // W/R, [10:0] Search window min
+	kAddrAdcRoReset    = 0x50300000, // W/R, [0:0]  AdcRo reset signal
+	kAddrAdcRoIsReady  = 0x50400000, // R,   [3:0]  AdcRo IsReady signals
       };
   };
 

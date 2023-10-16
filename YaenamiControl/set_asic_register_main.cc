@@ -139,6 +139,7 @@ int main(int argc, char* argv[])
     
     for( int32_t i = 0; i<kNumInitSeq; ++i){
       ExecSpiSequence(board_ip, 0xf, GenFilePath(reg_dir_path, file_name[i]) );
+      sleep(1);
     }
   }
 
