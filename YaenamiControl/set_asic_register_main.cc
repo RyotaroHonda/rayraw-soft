@@ -81,9 +81,11 @@ ExecSpiSequence(std::string board_ip, uint32_t chip_select, std::string file_pat
 
   // Check busy flags. If the read value is not zero, the sequencer is still running.
   while(0 != fpga_module.ReadModule(YSC::kAddrBusyFlag, 1)){
-    std::cout << "#D: Sequencer is still running" << std::endl;
+    std::cout << "#D: Sequencer is still running " << std::endl;
     sleep(1);
   };
+
+  fpga_module.WriteModule(YSC::kAddrChipSelect, 0);
 
   return;
 }
