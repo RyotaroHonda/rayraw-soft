@@ -123,7 +123,11 @@ int main(int argc, char* argv[])
   if(control_mode == kNormalMode){
     const std::string file_name[kNumAsic] =
       {
-	"YAENAMI_1-3.txt","YAENAMI_2-3.txt","YAENAMI_3-3.txt","YAENAMI_4-3.txt"
+	//	"YAENAMI_1-3.txt","YAENAMI_2-3.txt","YAENAMI_3-3.txt","YAENAMI_4-3.txt"
+	"YAENAMI_0.txt",
+	"YAENAMI_1.txt",
+	"YAENAMI_2.txt",
+	"YAENAMI_3.txt"
       };
     
     for( int32_t i = 0; i<kNumAsic; ++i){
@@ -136,7 +140,11 @@ int main(int argc, char* argv[])
   if(control_mode == kInitMode){
     const std::string file_name[kNumInitSeq] =
       {
-	"YAENAMI_1-1.txt","YAENAMI_1-2.txt","YAENAMI_1-1.txt","YAENAMI_1-3.txt"
+	//	"YAENAMI_1-1.txt","YAENAMI_1-2.txt","YAENAMI_1-1.txt","YAENAMI_1-3.txt"
+	"initialize/YAENAMI_0_initialize-0.txt",
+	"initialize/YAENAMI_0_initialize-1.txt",
+	"initialize/YAENAMI_0_initialize-2.txt",
+	"initialize/YAENAMI_0_initialize-3.txt"
       };
     
     for( int32_t i = 0; i<kNumInitSeq; ++i){
